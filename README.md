@@ -1,2 +1,2 @@
-microzed-customization
+microzed-documentation
 ======================
