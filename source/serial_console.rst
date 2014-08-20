@@ -32,16 +32,10 @@ the name of the device is by looking to the kernel messages, so:
 
 .. host::
 
- | [29629.785374] usb 3-2: >new full-speed USB device number 4 using xhci_hcd
- | [29629.806908] usb 3-2: >New USB device found, idVendor=04b4, idProduct=0008
- | [29629.806915] usb 3-2: >New USB device strings: Mfr=1, Product=2, SerialNumber=4
- | [29629.806919] usb 3-2: >Product: Cypress-USB2UART-0123456
- | [29629.806922] usb 3-2: >Manufacturer: 2012 Cypress Semiconductor
- | [29629.806925] usb 3-2: >SerialNumber: 0201258B0816
- | [29629.858654] cdc_acm 3-2:1.0: >This device cannot do calls on its own. It is not a modem.
- | [29629.858705] cdc_acm 3-2:1.0: >ttyACM0: USB ACM device
- | [29629.859345] usbcore: registered new interface driver cdc_acm
- | [29629.859347] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+ | [ 5522.462414] usb 2-1.1: new full-speed USB device number 6 using ehci_hcd
+ | [ 5522.557574] cp210x 2-1.1:1.0: cp210x converter detected
+ | [ 5522.630151] usb 2-1.1: reset full-speed USB device number 6 using ehci_hcd
+ | [ 5522.723501] usb 2-1.1: cp210x converter now attached to @console-device@
 
 As you can see, here the device has been recognized as **@console-device@**.
 
@@ -62,7 +56,7 @@ then you can setup your port with these parameters:
 .. host::
 
  | +-----------------------------------------------------------------------+
- | | A -    Serial Device      : /dev/ttyACM0                              |
+ | | A -    Serial Device      : /dev/ttyUSB0                              |
  | | B - Lockfile Location     : /var/lock                                 |
  | | C -   Callin Program      :                                           |
  | | D -  Callout Program      :                                           |

@@ -1,6 +1,9 @@
 U-boot
 ======
 
+Get sources
+-----------
+
 The bootloader used by @board@ is **u-boot**. 
 If you want to browse/modify the sources first you have to get them. There are two viable
 ways to do that:
@@ -41,12 +44,11 @@ and by properly patching the sources:
 
 .. host::
 
- | cd ~/Documents
- | git clone git://git.yoctoproject.org/meta-xilinx.git
- | cd meta-xilinx/
- | git checkout cb7329a596a5ab2d1392c1962f9975eeef8e4576
  | cd ..
  | patch -p1 -d u-boot-xlnx/ < meta-xilinx/recipes-bsp/u-boot/u-boot-xlnx/*
+
+The Cross-Toolchain
+-------------------
 
 Suppose you modified something and you want to recompile the sources to test your patches, well,
 you need a cross-toolchain (see :ref:`manual_compilation_label` Section). If you are not working
@@ -89,6 +91,8 @@ environment for you when you want to compile the bootloader or the kernel
 
  | source /home/@user@/architech_sdk/architech/@board-alias@/toolchain/environment-nofs
 
+Build
+-----
 
 Ok, now you a have working environment to compile *u-boot*, just do:
 

@@ -35,19 +35,28 @@ and by properly patching the sources:
 
 .. host::
 
+ | cd ..
+ | patch -p1 -d linux-xlnx/ < ~/architech_sdk/architech/microzed/yocto/meta-xilinx/recipes-kernel/linux/linux-xlnx/libtraceevent-Remove-hard-coded-include-to-usr-local.patch
+ | cp /home/@user@/architech_sdk/architech/@board-alias@/yocto/meta-xilinx/conf/machine/boards/common/zynq_defconfig_3.8.cfg ~/linux-xlnx/.config
+
+If you don't use our SDK then use the following commands to patch the sources:
+
+.. host::
+
  | cd ~/Documents
  | git clone git://git.yoctoproject.org/meta-xilinx.git
  | cd meta-xilinx/
  | git checkout cb7329a596a5ab2d1392c1962f9975eeef8e4576
  | cd ..
- | patch -p1 -d linux-xlnx/ < meta-xilix/recipes-kernel/linux/linux-xlnx/libtraceevent-Remove-hard-coded-include-to-usr-local.patch
- | cp /home/@user@/architech_sdk/architech/@board-alias@/yocto/meta-xilinx/conf/machine/boards/common/zynq_defconfig_3.8.cfg ~/linux-xlnx/.config
+ | patch -p1 -d linux-xlnx/ < meta-xilinx/recipes-kernel/linux/linux-xlnx/libtraceevent-Remove-hard-coded-include-to-usr-local.patch
+ | cp meta-xilinx/conf/machine/boards/common/zynq_defconfig_3.8.cfg linux-xlnx/.config
 
 Source the script to load the proper evironment for the cross-toolchain (see :ref:`manual_compilation_label`
 Section) and you are ready to customize the kernel:
 
 .. host::
-
+ 
+ | source /home/architech/architech_sdk/architech/microzed/toolchain/environment-nofs
  | cd ~/Documents/linux-xlnx
  | make menuconfig
 

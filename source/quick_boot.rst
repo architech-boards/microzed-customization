@@ -1,4 +1,4 @@
-Make sure that @board@ boot mode (JP7-JP11) and MIO0 (JP6) jumpers are set like in the following picture:
+Make sure that @board@ boot mode (JP1-JP3) jumpers are set like in the following picture:
 
 .. image:: _static/sdcard-jumpers.jpg
     :align: center
