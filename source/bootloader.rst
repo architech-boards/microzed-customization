@@ -45,7 +45,7 @@ and by properly patching the sources:
 .. host::
 
  | cd ..
- | patch -p1 -d u-boot-xlnx/ < meta-xilinx/recipes-bsp/u-boot/u-boot-xlnx/*
+ | patch -p1 -d u-boot-xlnx/ < /home/@user@/architech_sdk/architech/@board-alias@/yocto/meta-xilinx/recipes-bsp/u-boot/u-boot-xlnx/*
 
 The Cross-Toolchain
 -------------------

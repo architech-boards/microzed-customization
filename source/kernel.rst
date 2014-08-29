@@ -27,9 +27,10 @@ always get them from the Internet by cloning the proper repository and checking 
 .. host::
 
  | cd ~/Documents
- | git clone git://github.com/Xilinx/linux-xlnx
+ | git clone -b xlnx_3.8 git://github.com/Xilinx/linux-xlnx
  | cd linux-xlnx
  | git checkout f4ff79d44a966ebea6229213816d17eb472b303e
+ | git checkout xlnx_3.8
 
 and by properly patching the sources:
 
@@ -37,7 +38,7 @@ and by properly patching the sources:
 
  | cd ..
  | patch -p1 -d linux-xlnx/ < ~/architech_sdk/architech/microzed/yocto/meta-xilinx/recipes-kernel/linux/linux-xlnx/libtraceevent-Remove-hard-coded-include-to-usr-local.patch
- | cp /home/@user@/architech_sdk/architech/@board-alias@/yocto/meta-xilinx/conf/machine/boards/common/zynq_defconfig_3.8.cfg ~/linux-xlnx/.config
+
 
 If you don't use our SDK then use the following commands to patch the sources:
 
@@ -49,7 +50,14 @@ If you don't use our SDK then use the following commands to patch the sources:
  | git checkout cb7329a596a5ab2d1392c1962f9975eeef8e4576
  | cd ..
  | patch -p1 -d linux-xlnx/ < meta-xilinx/recipes-kernel/linux/linux-xlnx/libtraceevent-Remove-hard-coded-include-to-usr-local.patch
- | cp meta-xilinx/conf/machine/boards/common/zynq_defconfig_3.8.cfg linux-xlnx/.config
+
+Download the config file and put it in the linux directory, renamed *.config*:
+
+	`Download file config <_static/config>`_
+
+.. host::
+
+ | cp ~/Downloads/config ~/Documents/linux-xlnx/.config
 
 Source the script to load the proper evironment for the cross-toolchain (see :ref:`manual_compilation_label`
 Section) and you are ready to customize the kernel:
@@ -64,12 +72,20 @@ and to compile it:
 
 .. host::
 
- make -j <2 * number of processor's cores> uImage
+ | make microzed_defconfig
+ | make -j <2 * number of processor's cores>
 
-By the end of the build process you will get **uImage** under *arch/arm/boot*.
+By the end of the build process you will get **zImage** under *arch/arm/boot*.
 
 .. host::
 
- ~/Documents/linux-xlnx/arch/arm/boot/uImage
+ ~/Documents/linux-xlnx/arch/arm/boot/zImage
+ 
+Now you need compile the devicetree file:
+
+.. host::
+
+ | cp /home/architech/architech_sdk/architech/microzed/yocto/meta-microzed/recipes-kernel/linux/linux-xlnx-3.8/*.dts* arch/arm/boot/dts/
+ | make microzed-mmcblk0p2.dtb
 
 Enjoy!

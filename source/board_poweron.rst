@@ -3,7 +3,7 @@ Power-On
 
 @board@ takes the power from the mini-USB connector *J2*. The board is not shipped with an external power adapter.
 
-.. image:: _static/board_poweron_power_supply.jpg
+.. image:: _static/microzed-poweron.jpg
     :align: center
 
 To power-on the board, just connect the mini-USB from PC to @board@ connector.
