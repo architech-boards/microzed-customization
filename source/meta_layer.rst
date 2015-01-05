@@ -8,7 +8,7 @@ You can get it with *git*:
 
 .. host::
 
- | git clone -b dora https://github.com/architech-boards/meta-microzed.git
+ | git clone -b dizzy https://github.com/architech-boards/meta-microzed.git
 
 This layer depends with this one which defines the BSP for Xilinx devices:
 
