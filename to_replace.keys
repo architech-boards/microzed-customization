@@ -1,8 +1,8 @@
 @project@;Microzed
 @copyright@;Architech
-@version@;1.1.0
-@release@;B
-@date@;09/09/14
+@version@;2.0.0
+@release@;A
+@date@;13/02/15
 @htmlhelp@;microzed-sdkdoc
 @vendor@;Architech
 @board@;Microzed
@@ -32,3 +32,4 @@
 @quickstart-image-tar-options@;-xzf
 @meta-layer-remote@;git://git.yoctoproject.org
 @add-ons@;
+@yocto-version@;dizzy
