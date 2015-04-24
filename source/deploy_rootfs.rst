@@ -21,8 +21,6 @@ Internet:
 
 * `Download file BOOT.BIN <_static/BOOT.BIN>`_
 
-* `Download devicetree.dtb <_static/devicetree.dtb>`_
-
 * `Download file uEnv.txt <_static/uEnv.txt>`_
 
 Now, we assume that the first partition of the SD card gets mounted (in your SDK virtual machine)
@@ -49,7 +47,7 @@ Ok then, we can finally deploy bootloader and kernel on the first partition of t
 
  | cp /home/@user@/Documents/@board-alias@/BOOT.BIN /media/boot/
  | cp /home/@user@/Documents/@board-alias@/uEnv.txt /media/boot/
- | cp /home/@user@/Documents/@board-alias@/devicetree.dtb /media/boot/
+ | cp /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/microzed-mmcblk0p2.dtb /media/boot/devicetree.dtb
  | cp /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@/uImage /media/boot/
 
 and the root file system on the second partition of the SD card:

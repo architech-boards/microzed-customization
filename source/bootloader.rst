@@ -10,19 +10,20 @@ ways to do that:
 
 * if you already built @board@'s bootloader with *Bitbake*, then you already have them on your (virtual) disk, otherwise
 
-* you can download and patch them.
+* you can download them.
 
 *Bitbake* will place *u-boot* sources under:
 
 .. host::
 
- | /path/to/build/tmp/work/microzed-poky-linux-gnueabi/u-boot-xlnx/v2013.01-xilinx+gitAUTOINC+20a6cdd301-r1/git
+ | /path/to/build/tmp/work/microzed-poky-linux-gnueabi/u-boot-xlnx/v2014.01-xilinx+gitAUTOINC+2a0536fa48-r0/git
+
 
 this means that within the virtual machine you will find them under:
 
 .. host::
 
- | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/work/microzed-poky-linux-gnueabi/u-boot-xlnx/v2013.01-xilinx+gitAUTOINC+20a6cdd301-r1/git
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/work/microzed-poky-linux-gnueabi/u-boot-xlnx/v2014.01-xilinx+gitAUTOINC+2a0536fa48-r0/git
 
 
 We suggest you to **don't work under Bitbake build directory**, you will pay a speed penalty
@@ -38,14 +39,18 @@ out the proper commit:
  | cd ~/Documents
  | git clone git://github.com/Xilinx/u-boot-xlnx.git
  | cd u-boot-xlnx
- | git checkout 20a6cdd301941b97961c9c5425b5fbb771321aac
+ | git checkout 2a0536fa48db1fc5332e3cd33b846d0da0c8bc1e
 
-and by properly patching the sources:
+and in order to compile the u-boot, run the following commands:
 
 .. host::
 
- | cd ..
- | patch -p1 -d u-boot-xlnx/ < /home/@user@/architech_sdk/architech/@board-alias@/yocto/meta-xilinx/recipes-bsp/u-boot/u-boot-xlnx/*
+ | source ~/architech_sdk/architech/microzed/toolchain/environment-nofs
+ | export LDFLAGS="-L ~/architech_sdk/architech/microzed/toolchain/sysroots/armv7a-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/"
+ | make ARCH=arm distclean
+ | make zynq_zed_config
+ | USE_PRIVATE_LIBGCC="yes" make all
+
 
 The Cross-Toolchain
 -------------------

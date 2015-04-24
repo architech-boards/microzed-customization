@@ -2,7 +2,7 @@
 @copyright@;Architech
 @version@;2.0.0
 @release@;A
-@date@;13/02/15
+@date@;26/03/15
 @htmlhelp@;microzed-sdkdoc
 @vendor@;Architech
 @board@;Microzed
@@ -16,7 +16,7 @@
 @vm-ip@;192.168.0.100
 @target-ip@;192.168.0.10
 @board-alias@;microzed
-@ubuntu-version@;Ubuntu 12.04 32bit
+@ubuntu-version@;Ubuntu 14.04 32bit
 @distro-name@;poky
 @quickstart-image@;core-image-minimal-dev
 @console-device@;/dev/ttyUSB0
